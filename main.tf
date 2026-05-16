@@ -1,3 +1,5 @@
+# Terraform configuration for AWS infrastructure
+## VPC module
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
@@ -28,6 +30,9 @@ module "vpc" {
 
   enable_dns_support = true
 }
+
+
+## ECR module
 module "ecr" {
   source = "./backend/ecr"
 
@@ -36,6 +41,8 @@ module "ecr" {
   environment = var.environment
 }
 
+
+### IAM module
 module "iam" {
   source = "./backend/iam"
 
@@ -44,6 +51,8 @@ module "iam" {
   environment = var.environment
 }
 
+
+## ALB module
 module "alb" {
   source = "./backend/alb"
 
@@ -58,6 +67,8 @@ module "alb" {
   container_port = var.container_port
 }
 
+
+## ECS module
 module "ecs" {
   source = "./backend/ecs"
 
@@ -86,10 +97,13 @@ module "ecs" {
   vpc_id = module.vpc.vpc_id
 }
 
-module "Frontend" {
-  source = "./Frontend"
 
+## Frontend module
+module "frontend" {
+  source = "./frontend"
 
-  bucket_name = var.bucket_name
+  project_name = var.project_name
+
+  environment = var.environment
 
 }
