@@ -26,6 +26,32 @@ resource "aws_ecs_task_definition" "backend" {
         }
       ]
 
+<<<<<<< HEAD
+=======
+      environment = [
+        {
+          name  = "NODE_ENV"
+          value = "production"
+        },
+        {
+          name  = "PORT"
+          value = tostring(var.container_port)
+        },
+        {
+          name  = "MONGODB_URI"
+          value = var.mongo_uri
+        },
+        {
+          name  = "JWT_SECRET"
+          value = var.jwt_secret
+        },
+        {
+          name  = "PAYPAL_CLIENT_ID"
+          value = var.paypal_client_id
+        }
+      ]
+
+>>>>>>> 72001be (Rename environment variable MONGO_URI to MONGODB_URI)
       logConfiguration = {
         logDriver = "awslogs"
 
