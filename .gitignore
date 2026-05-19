@@ -3,10 +3,11 @@
 .terraform/
 *.tfstate
 *.tfstate.*
-.terraform.lock.hcl
-*.tfvars
-*.tfvars.json
-*.tfvars.*
+
+# Sensitive variable files
 terraform.tfvars
+
+# Lock file
+*.terraform.lock.hcl
 
 "@ | Out-File -Encoding utf8 .gitignore
