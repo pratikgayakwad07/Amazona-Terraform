@@ -26,8 +26,6 @@ resource "aws_ecs_task_definition" "backend" {
         }
       ]
 
-<<<<<<< HEAD
-=======
       environment = [
         {
           name  = "NODE_ENV"
@@ -39,7 +37,7 @@ resource "aws_ecs_task_definition" "backend" {
         },
         {
           name  = "MONGODB_URI"
-          value = var.mongo_uri
+          value = var.mongodb_uri
         },
         {
           name  = "JWT_SECRET"
@@ -51,7 +49,6 @@ resource "aws_ecs_task_definition" "backend" {
         }
       ]
 
->>>>>>> 72001be (Rename environment variable MONGO_URI to MONGODB_URI)
       logConfiguration = {
         logDriver = "awslogs"
 

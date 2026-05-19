@@ -49,3 +49,15 @@ variable "memory" {
 variable "desired_count" {
   type = number
 }
+
+variable "mongodb_uri" {
+  type = string
+}
+
+variable "jwt_secret" {
+  type = string
+}
+
+variable "paypal_client_id" {
+  type = string
+}

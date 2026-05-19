@@ -45,3 +45,16 @@ variable "alb_sg_id" {
 variable "vpc_id" {
   type = string
 }
+
+variable "jwt_secret" {
+  type = string
+}
+
+variable "paypal_client_id" {
+  type = string
+}
+
+variable "mongodb_uri" {
+  type = string
+}
+

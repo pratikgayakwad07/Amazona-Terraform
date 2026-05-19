@@ -95,6 +95,12 @@ module "ecs" {
   alb_sg_id = module.alb.alb_sg_id
 
   vpc_id = module.vpc.vpc_id
+
+  mongodb_uri        = var.mongodb_uri
+
+  jwt_secret       = var.jwt_secret
+
+  paypal_client_id = var.paypal_client_id
 }
 
 
