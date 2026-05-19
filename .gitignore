@@ -6,7 +6,7 @@
 .terraform.lock.hcl
 
 # Local .tfvars files, which are likely to contain sensitive data (e.g., API keys, passwords, etc.)
-*.tfvars
+terraform.tfvars
 *.tfvars.json
 *.tfvars.*
 
