@@ -39,4 +39,21 @@ jobs:
       run: terraform plan 
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve 
+      run: terraform apply -auto-approve
+
+      # Trigger Backend Repo
+    - name: Trigger Backend Deployment
+      run: |
+        curl -X POST \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+        https://api.github.com/repos/pratikgayakwad07/Backend-Amazona/dispatches \
+        -d '{"event_type":"backend_deploy"}'
+      # Trigger Frontend Repo
+    - name: Trigger Frontend Deployment
+      run: |
+        curl -X POST \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+        https://api.github.com/repos/pratikgayakwad07/Frontend-Amazona/dispatches \
+        -d '{"event_type":"frontend_deploy"}'
