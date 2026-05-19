@@ -5,4 +5,9 @@
 *.tfstate.*
 .terraform.lock.hcl
 
+# Local .tfvars files, which are likely to contain sensitive data (e.g., API keys, passwords, etc.)
+*.tfvars
+*.tfvars.json
+*.tfvars.*
+
 "@ | Out-File -Encoding utf8 .gitignore
