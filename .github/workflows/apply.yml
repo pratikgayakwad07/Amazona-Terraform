@@ -36,10 +36,11 @@ jobs:
 
 
     - name: Terraform Plan
-      run: terraform plan 
+      run: terraform plan -var-file="terraform.tfvars"
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve
+      run: terraform apply -var-file="terraform.tfvars" -auto-approve
+
 
       # Trigger Backend Repo
     - name: Trigger Backend Deployment
